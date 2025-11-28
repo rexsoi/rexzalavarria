@@ -107,6 +107,25 @@ li {
     margin-bottom: 0.25rem;
 }
 
+/* Footer Styles */
+footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e0e0e0;
+    text-align: center;
+    color: #666;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-info {
+    font-size: 0.85rem;
+    color: #888;
+}
+
 /* Accessibility: Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
     * {

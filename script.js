@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add scroll-to-top functionality
     addScrollToTop();
+
+    // Update footer year automatically
+    updateFooterYear();
 });
 
 /**
@@ -104,6 +107,17 @@ function addScrollToTop() {
 }
 
 /**
+ * Update footer year automatically
+ */
+function updateFooterYear() {
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
+    }
+}
+
+/**
  * Check if user prefers reduced motion
  */
 function prefersReducedMotion() {
@@ -115,6 +129,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         displayLastVisit,
         addScrollToTop,
+        updateFooterYear,
         prefersReducedMotion
     };
 }
