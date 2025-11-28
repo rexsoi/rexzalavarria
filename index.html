@@ -19,35 +19,35 @@
 
     <title>Rex S. Zalavarria</title>
 
-    <!-- External CSS Stylesheet -->
+    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <a href="#main" class="skip-link">Skip to main content</a>
+<body class="min-h-screen flex flex-col max-w-4xl mx-auto px-4 py-8 sm:px-6 sm:py-12 text-gray-800">
+    <a href="#main" class="absolute -top-10 left-0 bg-black text-white px-4 py-2 z-50 focus:top-0 focus:outline focus:outline-2 focus:outline-blue-600 focus:outline-offset-2">Skip to main content</a>
 
-    <header>
-        <h1>Rex S. Zalavarria</h1>
-        <div class="version" aria-label="Current version">
+    <header class="mb-8">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">Rex S. Zalavarria</h1>
+        <div class="inline-block bg-gray-100 px-3 py-1 rounded text-sm" aria-label="Current version">
             Version: 1.2.0
         </div>
     </header>
 
-    <main id="main">
-        <p class="tagline">Fastest and <strike>Primitive</strike> Website!</p>
-        <p class="credit">Assisted by Claude Code.</p>
+    <main id="main" class="flex-1">
+        <p class="text-xl font-medium text-gray-700 my-6">Fastest and <strike>Primitive</strike> Website!</p>
+        <p class="text-base text-gray-600 italic mb-4">Assisted by Claude Code.</p>
 
-        <section class="about" aria-labelledby="about-heading">
-            <h2 id="about-heading">About</h2>
-            <p>Hosted by GitHub Pages.</p>
+        <section class="mt-8 p-6 bg-gray-50 rounded-lg" aria-labelledby="about-heading">
+            <h2 id="about-heading" class="text-3xl font-semibold mb-4 text-gray-800">About</h2>
+            <p class="mb-4">Hosted by GitHub Pages.</p>
             <p>Using Static HTML</p>
         </section>
 
-        <section class="changelog" aria-labelledby="changelog-heading">
-            <h2 id="changelog-heading">Change Log</h2>
+        <section class="mt-8" aria-labelledby="changelog-heading">
+            <h2 id="changelog-heading" class="text-3xl font-semibold mb-4 text-gray-800">Change Log</h2>
 
-            <article class="changelog-entry">
-                <time datetime="2025-11-28">Date: 2025/11/28</time>
-                <ul>
+            <article class="mb-6 p-4 bg-gray-50 border-l-4 border-blue-600">
+                <time datetime="2025-11-28" class="font-semibold text-blue-600">Date: 2025/11/28</time>
+                <ul class="ml-6 mt-2 list-disc space-y-1">
                     <li>Initial Creation</li>
                     <li>Add CLAUDE.md</li>
                     <li>Improved accessibility with semantic HTML and ARIA labels</li>
@@ -71,9 +71,9 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; <span id="current-year">2025</span> Rex S. Zalavarria. All rights reserved.</p>
-        <p class="footer-info">Hosted by GitHub Pages | Built with HTML, CSS & JavaScript</p>
+    <footer class="mt-12 pt-8 border-t-2 border-gray-300 text-center text-gray-600">
+        <p class="mb-2 text-sm">&copy; <span id="current-year">2025</span> Rex S. Zalavarria. All rights reserved.</p>
+        <p class="text-xs text-gray-500">Hosted by GitHub Pages | Built with HTML, CSS & JavaScript</p>
     </footer>
 
     <!-- External JavaScript -->

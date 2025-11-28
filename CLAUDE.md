@@ -4,25 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static personal website for Rex S. Zalavarria. The project follows a "fastest and primitive" philosophy with minimal complexity, maximum simplicity, and adherence to web accessibility standards and best practices.
+This is a static personal website for Rex S. Zalavarria. The project uses Tailwind CSS for styling and maintains adherence to web accessibility standards and best practices.
 
 ## Architecture
 
 - **Static HTML**: `index.html` with semantic HTML5 elements
-- **External CSS**: `styles.css` for all styling (separated for better maintainability)
+- **Tailwind CSS**: Utility-first CSS framework for styling
 - **External JavaScript**: `script.js` for interactive features
-- **No build process**: Changes are immediately ready for deployment
-- **No dependencies**: Pure HTML/CSS/JS with no frameworks or preprocessors
+- **Build process**: Tailwind CLI compiles `src/input.css` to `styles.css`
+- **Dependencies**: Tailwind CSS, PostCSS, and Autoprefixer (dev dependencies)
 
 ## File Structure
 
 ```
 rexzalavarria/
-├── index.html      # Main HTML with semantic structure
-├── styles.css      # All CSS styling
-├── script.js       # JavaScript functionality
-├── images/         # Image assets folder
-└── CLAUDE.md       # This file
+├── index.html           # Main HTML with Tailwind utility classes
+├── src/
+│   └── input.css        # Tailwind CSS source file
+├── styles.css           # Compiled CSS output (generated, do not edit)
+├── script.js            # JavaScript functionality
+├── images/              # Image assets folder
+├── tailwind.config.js   # Tailwind configuration
+├── package.json         # npm dependencies and scripts
+├── .gitignore           # Git ignore rules
+└── CLAUDE.md            # This file
 ```
 
 ## Accessibility Features
@@ -44,11 +49,11 @@ This website implements WCAG accessibility standards:
 - Open Graph and Twitter Card meta tags for social sharing
 - Proper heading hierarchy (h1 → h2)
 
-### CSS
-- CSS reset for consistent cross-browser rendering
-- System font stack for performance
-- Mobile-responsive with media queries
-- Accessible focus indicators (2px solid outline)
+### CSS (Tailwind)
+- Tailwind utility classes for all styling
+- Mobile-responsive with Tailwind's responsive modifiers (sm:, md:, lg:, etc.)
+- Accessible focus indicators using Tailwind's focus: variants
+- Consistent design system through Tailwind's default configuration
 
 ### JavaScript
 - Smooth scrolling for skip navigation
@@ -66,19 +71,32 @@ This website implements WCAG accessibility standards:
 
 ## Development Workflow
 
-To view changes:
+### Initial Setup
+1. Install dependencies: `npm install`
+2. Build CSS: `npm run build` (or `npm run watch` for auto-rebuild during development)
+
+### Viewing Changes
 - Open `index.html` directly in a browser, or
 - Use a local web server: `python -m http.server` or VS Code Live Server extension
+- **Important**: Always run `npm run build` after making changes to Tailwind classes
+
+### Build Commands
+- `npm run build`: Build CSS once for production
+- `npm run watch`: Watch for changes and rebuild automatically (useful during development)
 
 ## Making Changes
 
 When updating the website:
 
-1. **HTML changes**: Edit `index.html`
-2. **Style changes**: Edit `styles.css`
+1. **HTML changes**: Edit `index.html` with Tailwind utility classes
+2. **Style changes**:
+   - Use Tailwind utility classes directly in HTML
+   - For custom styles, edit `src/input.css` (rare cases only)
+   - Always run `npm run build` after changes
 3. **JavaScript changes**: Edit `script.js`
-4. **Version updates**: Increment version number in `index.html`
-5. **Changelog**: Always update the changelog section with:
+4. **Tailwind config changes**: Edit `tailwind.config.js` if you need to customize Tailwind
+5. **Version updates**: Increment version number in `index.html`
+6. **Changelog**: Always update the changelog section with:
    - Current date (use `<time datetime="YYYY-MM-DD">` format)
    - List of changes as `<li>` items
    - Consolidate all changes under the same date
