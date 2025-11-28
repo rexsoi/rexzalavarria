@@ -21,6 +21,7 @@ rexzalavarria/
 ├── index.html      # Main HTML with semantic structure
 ├── styles.css      # All CSS styling
 ├── script.js       # JavaScript functionality
+├── images/         # Image assets folder
 └── CLAUDE.md       # This file
 ```
 
@@ -55,6 +56,13 @@ This website implements WCAG accessibility standards:
 - localStorage for tracking last visit
 - Console logging for debugging
 - Respects reduced motion preferences
+
+### Images
+- Store all images in the `images/` folder
+- Always provide descriptive `alt` attributes for accessibility
+- Use appropriate image formats (WebP with fallbacks, or JPEG/PNG)
+- Optimize images for web (compress before uploading)
+- Use responsive image techniques when appropriate (`srcset`, `sizes`)
 
 ## Development Workflow
 
