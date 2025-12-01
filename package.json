@@ -4,9 +4,11 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "build": "postcss ./src/input.css -o ./styles.css",
-    "watch": "postcss ./src/input.css -o ./styles.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   "homepage": "https://github.com/rexsoi/rexzalavarria#readme",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
+    "astro": "^5.16.3",
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",

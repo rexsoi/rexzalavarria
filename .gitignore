@@ -3,6 +3,8 @@ node_modules/
 
 # Build output
 styles.css
+dist/
+.astro/
 
 # Logs
 npm-debug.log*

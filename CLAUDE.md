@@ -4,30 +4,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static personal website for Rex S. Zalavarria. The project uses Tailwind CSS for styling and maintains adherence to web accessibility standards and best practices.
+This is a static personal website for Rex S. Zalavarria. The project is built with Astro and uses Tailwind CSS v4 for styling, while maintaining adherence to web accessibility standards and best practices.
 
 ## Architecture
 
-- **Static HTML**: `index.html` with semantic HTML5 elements
-- **Tailwind CSS**: Utility-first CSS framework for styling
-- **External JavaScript**: `script.js` for interactive features
-- **Build process**: Tailwind CLI compiles `src/input.css` to `styles.css`
-- **Dependencies**: Tailwind CSS, PostCSS, and Autoprefixer (dev dependencies)
+- **Astro Framework**: Modern static site generator with component-based architecture
+- **Tailwind CSS v4**: Latest version using @tailwindcss/postcss for styling
+- **Vite**: Build tool used by Astro for fast development and optimized production builds
+- **PostCSS**: Processes Tailwind CSS through Vite configuration
+- **Dependencies**: Astro, Tailwind CSS v4, PostCSS, and Autoprefixer (dev dependencies)
 
 ## File Structure
 
 ```
 rexzalavarria/
-├── index.html           # Main HTML with Tailwind utility classes
 ├── src/
-│   └── input.css        # Tailwind CSS source file
-├── styles.css           # Compiled CSS output (generated, do not edit)
-├── script.js            # JavaScript functionality
-├── images/              # Image assets folder
-├── tailwind.config.js   # Tailwind configuration
-├── package.json         # npm dependencies and scripts
-├── .gitignore           # Git ignore rules
-└── CLAUDE.md            # This file
+│   ├── pages/
+│   │   └── index.astro      # Main page with HTML, CSS, and JS
+│   └── input.css            # Tailwind CSS source file
+├── public/                  # Static assets (images, fonts, etc.)
+├── dist/                    # Build output (generated, do not edit)
+├── astro.config.mjs         # Astro configuration
+├── tailwind.config.js       # Tailwind configuration
+├── postcss.config.js        # PostCSS configuration for Tailwind v4
+├── package.json             # npm dependencies and scripts
+├── .gitignore               # Git ignore rules
+├── .astro/                  # Astro cache (generated, do not edit)
+└── CLAUDE.md                # This file
 ```
 
 ## Accessibility Features
@@ -56,6 +59,8 @@ This website implements WCAG accessibility standards:
 - Consistent design system through Tailwind's default configuration
 
 ### JavaScript
+- Inline scripts within Astro components using `<script>` tags
+- Client-side interactivity runs in the browser
 - Smooth scrolling for skip navigation
 - Scroll-to-top button (appears when scrolling down)
 - localStorage for tracking last visit
@@ -63,40 +68,50 @@ This website implements WCAG accessibility standards:
 - Respects reduced motion preferences
 
 ### Images
-- Store all images in the `images/` folder
+- Store all images in the `public/` folder (Astro serves these as static assets)
+- Reference images from root path (e.g., `/image.jpg` for `public/image.jpg`)
 - Always provide descriptive `alt` attributes for accessibility
 - Use appropriate image formats (WebP with fallbacks, or JPEG/PNG)
 - Optimize images for web (compress before uploading)
-- Use responsive image techniques when appropriate (`srcset`, `sizes`)
+- Consider using Astro's `<Image>` component for automatic optimization (future enhancement)
 
 ## Development Workflow
 
 ### Initial Setup
 1. Install dependencies: `npm install`
-2. Build CSS: `npm run build` (or `npm run watch` for auto-rebuild during development)
+2. Start development server: `npm run dev`
 
-### Viewing Changes
-- Open `index.html` directly in a browser, or
-- Use a local web server: `python -m http.server` or VS Code Live Server extension
-- **Important**: Always run `npm run build` after making changes to Tailwind classes
+### Development Commands
+- `npm run dev`: Start Astro dev server with hot module reloading (http://localhost:4321)
+- `npm run build`: Build the site for production (outputs to `dist/`)
+- `npm run preview`: Preview the production build locally
+- `npm run astro`: Run Astro CLI commands
 
-### Build Commands
-- `npm run build`: Build CSS once for production
-- `npm run watch`: Watch for changes and rebuild automatically (useful during development)
+### Development Server
+- Astro's dev server includes:
+  - Hot module reloading (changes appear instantly)
+  - Automatic Tailwind CSS compilation via Vite
+  - Error overlay for debugging
+  - Fast refresh for instant updates
 
 ## Making Changes
 
 When updating the website:
 
-1. **HTML changes**: Edit `index.html` with Tailwind utility classes
+1. **Content/HTML changes**: Edit `src/pages/index.astro`
+   - HTML goes in the component body
+   - Use Astro's component syntax (e.g., `{version}` for variables)
 2. **Style changes**:
-   - Use Tailwind utility classes directly in HTML
+   - Use Tailwind utility classes directly in Astro components
    - For custom styles, edit `src/input.css` (rare cases only)
-   - Always run `npm run build` after changes
-3. **JavaScript changes**: Edit `script.js`
-4. **Tailwind config changes**: Edit `tailwind.config.js` if you need to customize Tailwind
-5. **Version updates**: Increment version number in `index.html`
-6. **Changelog**: Always update the changelog section with:
+   - Changes are automatically processed by Vite in dev mode
+3. **JavaScript changes**:
+   - Add `<script>` tags in Astro components
+   - Scripts are automatically bundled and optimized
+4. **Tailwind config changes**: Edit `tailwind.config.js` to customize Tailwind
+5. **Astro config changes**: Edit `astro.config.mjs` for Astro settings
+6. **Version updates**: Increment version number in frontmatter of `src/pages/index.astro`
+7. **Changelog**: Always update the changelog section with:
    - Current date (use `<time datetime="YYYY-MM-DD">` format)
    - List of changes as `<li>` items
    - Consolidate all changes under the same date
