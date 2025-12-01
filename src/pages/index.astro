@@ -37,7 +37,6 @@ const version = "1.3.0";
     </header>
 
     <main id="main" class="flex-1">
-        <p class="text-xl font-medium text-gray-700 my-6">Fastest and <strike>Primitive</strike> Website!</p>
         <p class="text-base text-gray-600 italic mb-4">Assisted by Claude Code.</p>
 
         <section class="mt-8 p-6 bg-gray-50 rounded-lg" aria-labelledby="about-heading">
@@ -53,6 +52,20 @@ const version = "1.3.0";
 
         <section class="mt-8" aria-labelledby="changelog-heading">
             <h2 id="changelog-heading" class="text-3xl font-semibold mb-4 text-gray-800">Change Log</h2>
+
+            <article class="mb-6 p-4 bg-gray-50 border-l-4 border-purple-600">
+                <time datetime="2025-12-01" class="font-semibold text-purple-600">Date: 2025/12/01</time>
+                <ul class="ml-6 mt-2 list-disc space-y-1">
+                    <li>Created GitHub Actions deployment workflow (.github/workflows/deploy.yml)</li>
+                    <li>Configured Astro for GitHub Pages deployment with site and base paths</li>
+                    <li>Migrated to Tailwind CSS v4 using Astro's official integration (@astro add tailwind)</li>
+                    <li>Switched from PostCSS setup to @tailwindcss/vite plugin for better Astro compatibility</li>
+                    <li>Created src/styles/global.css for Tailwind CSS imports</li>
+                    <li>Fixed CSS import method (moved from link tag to Astro frontmatter import)</li>
+                    <li>Removed legacy postcss.config.js and tailwind.config.js files</li>
+                    <li>Updated astro.config.mjs with Vite plugins configuration</li>
+                </ul>
+            </article>
 
             <article class="mb-6 p-4 bg-gray-50 border-l-4 border-green-600">
                 <time datetime="2025-11-30" class="font-semibold text-green-600">Date: 2025/11/30</time>
